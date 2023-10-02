@@ -8,7 +8,7 @@ const db = require('./db');
 
 // Ruta para obtener los reportes
 app.get('/Reportes', (req, res) => {
-  db.query('SELECT reporte_id as id, firstName, lastName, location_report as colonia, image FROM report', (err, results) => {
+  db.query('SELECT reporte_id, firstName, lastName, location_report, image FROM report', (err, results) => {
     if (err) {
       console.error('Error al consultar la base de datos: ' + err);
       res.status(500).json({ error: 'Error al obtener los reportes' });
